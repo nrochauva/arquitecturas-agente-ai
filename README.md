@@ -20,7 +20,7 @@ No hay ninguna clave en el repositorio.
 
 ## Demostración sin red
 
-Desde `cp codigo`, sin clave ni modelo.
+Desde `cd codigo`, sin clave ni modelo.
 
 ```bash
 ../.venv/bin/python referencia.py
@@ -83,7 +83,8 @@ herramientas sobre `mcp` 1.30 sin que el instalador lo detecte, por eso se fija 
 Todo está en `resultados/` en la raíz del proyecto. `mediciones.csv` es el estado anterior
 a la modificación y `despues.csv` el posterior. Las trazas están en `trazas/mediciones` y
 `trazas/despues`. Los cortes por error 503 quedan como filas `fallo_infraestructura` y se
-excluyen de los porcentajes. Las tres trazas comentadas están en el anexo de la memoria.
+excluyen de los porcentajes. Al repetir un corte, su traza se sobrescribe y solo queda su
+fila en el CSV. Las tres trazas comentadas están en el anexo de la memoria.
 
 La fila del caso 9 de Pydantic AI local se corrigió tras medir, de 0 a 1 llamadas,
 recalculando desde su traza. El contador original omitía las llamadas denegadas.

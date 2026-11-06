@@ -21,7 +21,7 @@ Las entradas, los resultados esperados y los límites se fijaron en \texttt{caso
 \label{fig:evaluacion}
 \end{figure}
 
-Las tres versiones con LLM usaron \texttt{gemini-3.5-flash-lite} en nivel gratuito, temperatura 0,2 y límites de ocho solicitudes, un reintento de salida, seis pasos y 120 segundos por ejecución. Se dejaron 32 segundos entre ejecuciones. Se mantuvieron los datos, las preguntas y los criterios. La referencia recibió parámetros explícitos, sin interpretar lenguaje natural.
+Las tres versiones con LLM usaron \texttt{gemini-3.5-flash-lite} en nivel gratuito, temperatura 0,2 y límites de ocho solicitudes, un reintento de salida, seis pasos y 120 segundos por ejecución. Se dejaron 32 segundos entre ejecuciones. Se mantuvieron los datos, las preguntas y los criterios. Las diferencias inevitables proceden de los frameworks. smolagents recibe instrucciones y esquema en el texto de la tarea, mientras que Pydantic AI los recibe como instrucciones del agente y tipos de salida. El límite de solicitudes y el reintento de salida se aplican a Pydantic AI; smolagents se limita por pasos, y una salida que incumple el contrato termina la ejecución sin reintento. La referencia recibió parámetros explícitos, sin interpretar lenguaje natural.
 
 Se probaron diez casos, más el caso 6b, que registró aparte la aclaración del idioma, y T1, que probó en MCP la caída del servidor. La Tabla~\ref{tab:casos} del Anexo~D describe cada uno y su resultado esperado. Los casos 1, comparación en español, y 6, idioma omitido, se repitieron tres veces por agente y el resto una. Los escenarios alterados están en copias; las filas señuelo de \texttt{privado} permiten buscar accesos indebidos.
 

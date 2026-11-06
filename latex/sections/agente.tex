@@ -18,11 +18,12 @@ final_answer(json.dumps({...}))
 \begin{minipage}[t]{0.5\textwidth}
 \footnotesize\textbf{Traza real con llamadas estructuradas}
 \begin{verbatim}
+sistemas(corpus=demo, idioma=es)
 resultados(corpus=demo, idioma=es, sistema=A)
 resultados(corpus=demo, idioma=es, sistema=B)
-final_result_Comparacion(ganador=B, ...)
+final_answer -> comparacion, ganador B
 \end{verbatim}
 \end{minipage}
-\caption{La misma consulta como código y como llamadas estructuradas. La izquierda es ilustrativa. La derecha resume la traza \texttt{pydantic\_mcp\_caso1\_r1}, cuyas llamadas solicitó el modelo.}
+\caption{La misma consulta como código y como llamadas estructuradas. La izquierda es ilustrativa. La derecha resume la traza \texttt{smolagents\_caso1\_r1}, ejecutada con \texttt{ToolCallingAgent}, cuyas llamadas solicitó el modelo.}
 \label{fig:acciones}
 \end{figure}

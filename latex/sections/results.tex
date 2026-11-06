@@ -29,7 +29,7 @@ Se probaron además dos fallos del servidor MCP. En T1, con el agente conectado,
 
 En las nueve ejecuciones iniciales del caso 6, el modelo eligió español sin que el usuario lo indicara. El fallo fue espontáneo, pese a la instrucción de no suponer parámetros. Las respuestas tenían formato correcto y cifras reales; el verificador no podía detectar el problema porque comprobaba los datos para el idioma que el propio modelo había elegido.
 
-Se añadió un único control común a las tres versiones. Busca menciones de idioma en la petición original y, si no encuentra ninguna, sustituye una comparación por \texttt{datos\_insuficientes} con motivo \texttt{parametro\_ausente}. Se eligió una comprobación del programa porque no depende de que el modelo obedezca otra instrucción ni exige adaptar cada framework. Los casos 1 y 6b, que antes funcionaban, se repitieron para comprobar si el cambio perjudicaba otras respuestas.
+Se añadió un único control común a las tres versiones, aplicado por \texttt{experimento.py} tras la salida de cada agente. Busca menciones de idioma en la petición original y, si no encuentra ninguna, sustituye una comparación por \texttt{datos\_insuficientes} con motivo \texttt{parametro\_ausente}. Se eligió una comprobación del programa porque no depende de que el modelo obedezca otra instrucción ni exige adaptar cada framework. Los casos 1 y 6b, que antes funcionaban, se repitieron para comprobar si el cambio perjudicaba otras respuestas.
 
 \begin{table}[htbp]
 \centering\small

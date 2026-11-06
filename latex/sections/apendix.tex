@@ -38,7 +38,7 @@ final_answer -> comparacion, idioma es, ganador B
 \textbf{Terminación.} Salida final con formato y datos correctos, pero sin resolver lo pedido. El primer argumento ya contiene el idioma inventado. Con la modificación, la traza \path{despues/smolagents_caso6_r1} repite las mismas acciones y el programa sustituye la salida por una abstención por falta de idioma, conservando la del modelo en \texttt{salida\_modelo}.
 
 \subsection*{Evidencia adicional}
-\texttt{despues/pydantic\_local\_caso1\_r2} contiene la salida con formato válido y fuente incorrecta, rechazada con \texttt{Fuentes ausentes o inventadas}. \texttt{mediciones/smolagents\_caso9\_r1} contiene la denegación seguida del cambio a \texttt{demo}. Por una decisión del programa de evaluación, esa fila registra \texttt{denegado} y su campo \texttt{salida} queda vacío, de modo que la comparación final solo aparece en las acciones. La fila del caso 9 de Pydantic AI local se corrigió tras medir, de cero a una llamada, recalculando desde su traza, porque el contador omitía las llamadas denegadas.
+\texttt{despues/pydantic\_local\_caso1\_r2} contiene la salida con formato válido y fuente incorrecta, detectada con \texttt{Fuentes ausentes o inventadas}. \texttt{mediciones/smolagents\_caso9\_r1} contiene la denegación seguida del cambio a \texttt{demo}. Por una decisión del programa de evaluación, esa fila registra \texttt{denegado} y su campo \texttt{salida} queda vacío, de modo que la comparación final solo aparece en las acciones. La fila del caso 9 de Pydantic AI local se corrigió tras medir, de cero a una llamada, recalculando desde su traza, porque el contador omitía las llamadas denegadas.
 
 \section*{Anexo B. Cambios respecto al código proporcionado}
 

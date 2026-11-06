@@ -11,7 +11,7 @@ from dominio import (CORPUS_AUTORIZADOS, consultar, descubrir_sistemas, validar_
 
 @dataclass
 class Dependencias:
-    # Quedan en el programa: el modelo no ve estos valores ni puede cambiarlos.
+    # Quedan en el programa: el modelo conoce la regla, pero no puede cambiar estos valores.
     corpus_autorizados: frozenset = CORPUS_AUTORIZADOS
     ruta_datos: Path | None = None
 
