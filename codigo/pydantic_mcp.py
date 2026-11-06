@@ -1,5 +1,5 @@
 """Mismo contrato, herramientas publicadas mediante un servidor stdio.
-MCPToolset es la API de la documentación consultada; ver compatibilidad en LEEME.
+MCPToolset es la API de la documentación consultada; ver compatibilidad en README.
 """
 import asyncio
 import os

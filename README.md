@@ -10,6 +10,7 @@ Los comandos se ejecutan desde la raíz del proyecto.
 
 ```bash
 uv venv --python 3.13 .venv
+# Activar el venv en su terminal.
 uv pip install --python .venv/bin/python -r codigo/requirements-lock.txt
 cp .env.example .env
 ```
@@ -19,7 +20,7 @@ No hay ninguna clave en el repositorio.
 
 ## Demostración sin red
 
-Desde `codigo`, sin clave ni modelo.
+Desde `cp codigo`, sin clave ni modelo.
 
 ```bash
 ../.venv/bin/python referencia.py
@@ -37,6 +38,7 @@ La validación semántica comprueba valores, decisión y fuentes, y no juzga la 
 Desde la raíz del proyecto.
 
 ```bash
+# para pasar las variables de ambiente para el modelo gemini
 correr() {
   VIRTUAL_ENV=$PWD/.venv PYDANTIC_AI_NO_BANNER=1 uv run --no-project --active --env-file .env \
     python "codigo/$1" "${@:2}"
@@ -89,8 +91,8 @@ recalculando desde su traza. El contador original omitía las llamadas denegadas
 ## No realizado
 
 CodeAgent no se ejecutó por decisión de alcance. La rama `SMOL_CODE=1` de `smol_demo.py`
-requeriría Docker y `smolagents[docker]` y no forma parte de la evaluación. Tampoco se
-comprobó el acceso a las herramientas dentro del contenedor. No se probó transporte HTTP.
+requeriría Docker y `smolagents[docker]` y no forma parte de la evaluación. Al elegir `ToolCallingAgent`
+no se usó contenedor, por lo que tampoco se comprobó el acceso a las herramientas dentro de él. No se probó transporte HTTP.
 El servidor colgado se probó sin LLM y T1 ejercitó el servidor caído con el agente.
 El coste figura como no disponible porque el proveedor no lo facilitó en la ejecución.
 

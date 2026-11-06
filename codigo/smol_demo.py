@@ -1,5 +1,5 @@
 """Adaptador smolagents. Requiere proveedor/modelo configurado en el entorno.
-Configuración inicial con llamadas a funciones; ver LEEME para CodeAgent.
+Configuración inicial con llamadas a funciones; ver README para CodeAgent.
 """
 import json
 import os
