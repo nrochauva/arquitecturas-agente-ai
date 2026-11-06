@@ -1,0 +1,23 @@
+{
+  "configuracion": "referencia",
+  "caso": "5",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en francés en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "fr",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "idioma_sin_resultados",
+    "detalle": "No hay resultados en fr.",
+    "falta": [
+      "fr"
+    ],
+    "siguiente_paso": "Elegir un idioma con resultados o aportar evaluaciones."
+  },
+  "terminacion": "salida final"
+}

@@ -1,0 +1,164 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "1",
+  "repeticion": 2,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "es",
+        "con_resultados": [
+          "A",
+          "B",
+          "C"
+        ],
+        "sin_resultados": [
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "sistema": "A",
+        "idioma": "es"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:B",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 5,
+        "d": 3,
+        "i": 1,
+        "n": 100,
+        "wer": 0.09
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "sistemas": [
+          {
+            "sistema": "A",
+            "wer": 0.11,
+            "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+          },
+          {
+            "wer": 0.09,
+            "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales.",
+            "sistema": "B"
+          }
+        ],
+        "decision": "ganador",
+        "fuentes": [
+          "Conteos sintéticos del ejercicio, sin audio ni modelos reales.",
+          "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+        ],
+        "ganador": "B",
+        "corpus": "demo",
+        "estado": "comparacion",
+        "limitaciones": "Los datos provienen de un corpus demo con conteos sintéticos y metadatos agregados, sin acceso a audios reales ni inferencias clínicas. La comparación se limita a las filas evaluadas con la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion).",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida_modelo": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      },
+      {
+        "sistema": "B",
+        "wer": 0.09,
+        "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "B",
+    "fuentes": [
+      "Conteos sintéticos del ejercicio, sin audio ni modelos reales.",
+      "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+    ],
+    "limitaciones": "Los datos provienen de un corpus demo con conteos sintéticos y metadatos agregados, sin acceso a audios reales ni inferencias clínicas. La comparación se limita a las filas evaluadas con la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion)."
+  },
+  "control_intervino": false,
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      },
+      {
+        "sistema": "B",
+        "wer": 0.09,
+        "fuente": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "B",
+    "fuentes": [
+      "Conteos sintéticos del ejercicio, sin audio ni modelos reales.",
+      "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+    ],
+    "limitaciones": "Los datos provienen de un corpus demo con conteos sintéticos y metadatos agregados, sin acceso a audios reales ni inferencias clínicas. La comparación se limita a las filas evaluadas con la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion)."
+  },
+  "terminacion": "salida final"
+}

@@ -1,0 +1,5 @@
+configuracion,ejecuciones_validas,cortes_infraestructura,exito_tarea,validez_estructural,coherencia_evidencia,permisos,mediana_tiempo_s,mediana_solicitudes,mediana_herramientas,mediana_tokens_entrada,mediana_tokens_salida
+referencia,11,0,11,10,10,11,0.0,0.0,0.0,no disponible,no disponible
+smolagents,15,1,12,14,14,15,3.63,4.0,3.0,10620.0,288.0
+pydantic_local,15,2,12,14,14,15,2.47,3.0,3.0,3249.0,248.0
+pydantic_mcp,16,2,13,14,14,16,2.25,2.0,2.0,2142.0,226.5

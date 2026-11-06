@@ -1,0 +1,9 @@
+{
+  "configuracion": "referencia",
+  "caso": "9",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus privado.",
+  "acciones": [],
+  "salida": null,
+  "terminacion": "PermissionError: Corpus no autorizado: privado"
+}

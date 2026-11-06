@@ -1,0 +1,17 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "T1",
+  "repeticion": 1,
+  "peticion": "Compara B y C en español en el corpus demo. Consulta ambas filas, obtén sus WER, cita los identificadores y limita la conclusión al corpus.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    }
+  ],
+  "salida": null,
+  "terminacion": "McpError: Connection closed"
+}

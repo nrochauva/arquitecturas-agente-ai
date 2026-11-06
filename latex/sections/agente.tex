@@ -1,0 +1,28 @@
+\section{Decisión de agente}
+
+Se eligió \texttt{ToolCallingAgent} porque la tarea consiste en pocas consultas conocidas. Sus llamadas tienen argumentos definidos y quedan registradas por separado, lo que facilita validarlas y revisar la traza~\cite{smolagentsTour,smolagentsSec}. La traza es el registro de las acciones, las respuestas de las herramientas y la salida final.
+
+\texttt{CodeAgent} permitiría combinar consultas y cálculos mediante código generado. Sería útil para secuencias menos previsibles, pero exigiría ejecutar ese código en un entorno aislado y con recursos limitados. Las restricciones del intérprete local no proporcionan ese aislamiento~\cite{smolagentsSec}. Se dejó esta opción fuera de la evaluación. La Figura~\ref{fig:acciones} compara ambas formas de expresar la tarea y distingue el pseudocódigo de las llamadas realmente ejecutadas.
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[t]{0.47\textwidth}
+\footnotesize\textbf{Pseudocódigo, no ejecutado}
+\begin{verbatim}
+filas = [resultados('demo', 'es', s)
+         for s in ('A', 'B')]
+mejor = min(filas, key=lambda f: f['wer'])
+final_answer(json.dumps({...}))
+\end{verbatim}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.5\textwidth}
+\footnotesize\textbf{Traza real con llamadas estructuradas}
+\begin{verbatim}
+resultados(corpus=demo, idioma=es, sistema=A)
+resultados(corpus=demo, idioma=es, sistema=B)
+final_result_Comparacion(ganador=B, ...)
+\end{verbatim}
+\end{minipage}
+\caption{La misma consulta como código y como llamadas estructuradas. La izquierda es ilustrativa. La derecha resume la traza \texttt{pydantic\_mcp\_caso1\_r1}, cuyas llamadas solicitó el modelo.}
+\label{fig:acciones}
+\end{figure}

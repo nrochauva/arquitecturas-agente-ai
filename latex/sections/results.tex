@@ -1,0 +1,51 @@
+\section{Resultados}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Resultados antes del cambio, excluidos los cortes del proveedor y T1. Tiempos, llamadas y tokens se expresan como medianas por ejecución.}
+\label{tab:resultados}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccccccc}
+\toprule
+Configuración & Tarea & Estructura & Evidencia & Permisos & Tiempo s & Solic. & Herram. & Tokens entrada \\
+\midrule
+Referencia & 11/11 & 10/10 & 10/10 & 11/11 & 0,00 & 0 & 0 & no aplica \\
+smolagents & 12/15 & 14/14 & 14/14 & 15/15 & 3,63 & 4 & 3 & 10\,620 \\
+Pydantic AI local & 12/15 & 14/14 & 14/14 & 15/15 & 2,47 & 3 & 3 & 3\,249 \\
+Pydantic AI MCP & 12/15 & 14/14 & 14/14 & 15/15 & 2,26 & 2 & 2 & 2\,142 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Las tres versiones con LLM fallaron en las tres repeticiones del caso 6, al elegir un idioma que no se había indicado. Los demás casos cumplieron los criterios fijados, con la salvedad del caso 9, corpus privado, en smolagents, que se explica a continuación. En particular, se reconoció el empate, se aceptó la WER superior a uno y se rechazaron las filas incompatibles o inválidas. El comentario malicioso del caso 10 no cambió el resultado.
+
+En la Tabla~\ref{tab:resultados}, Estructura y Evidencia tienen un denominador menor porque no se aplican a una denegación. Se excluye T1 para comparar las mismas quince ejecuciones por agente.
+
+En el caso 9, smolagents contó como éxito porque el programa denegó el acceso al corpus privado y no se detectó fuga en la traza. Sin embargo, el framework entregó el error al modelo como una observación. Este continuó con el corpus \texttt{demo} y respondió a una consulta distinta de la solicitada. Se conserva el criterio fijado antes de medir, pero el éxito contabilizado no significa que toda esa conducta sea adecuada. En Pydantic AI, tanto local como con MCP, la excepción terminó la ejecución tras un intento.
+
+Se probaron además dos fallos del servidor MCP. En T1, con el agente conectado, el servidor murió al recibir una llamada y la ejecución terminó de forma controlada con \texttt{Connection closed}. El servidor colgado se probó sin LLM y terminó a los 2,2 segundos por tiempo de espera agotado. En ambos casos se optó por terminar, sin reintentar el transporte.
+
+\section{Fallo observado y modificación}
+
+En las nueve ejecuciones iniciales del caso 6, el modelo eligió español sin que el usuario lo indicara. El fallo fue espontáneo, pese a la instrucción de no suponer parámetros. Las respuestas tenían formato correcto y cifras reales; el verificador no podía detectar el problema porque comprobaba los datos para el idioma que el propio modelo había elegido.
+
+Se añadió un único control común a las tres versiones. Busca menciones de idioma en la petición original y, si no encuentra ninguna, sustituye una comparación por \texttt{datos\_insuficientes} con motivo \texttt{parametro\_ausente}. Se eligió una comprobación del programa porque no depende de que el modelo obedezca otra instrucción ni exige adaptar cada framework. Los casos 1 y 6b, que antes funcionaban, se repitieron para comprobar si el cambio perjudicaba otras respuestas.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Aciertos antes y después del control. Se excluyen los cortes del proveedor.}
+\label{tab:antes}
+\begin{tabular}{lccc}
+\toprule
+Caso & smolagents & Pydantic AI local & Pydantic AI MCP \\
+\midrule
+6, afectado & 0/3 a 3/3 & 0/3 a 3/3 & 0/3 a 3/3 \\
+1, comprobación & 3/3 a 3/3 & 3/3 a 2/3 & 3/3 a 3/3 \\
+6b, comprobación & 1/1 a 1/1 & 1/1 a 1/1 & 1/1 a 1/1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El control corrigió las nueve respuestas del caso 6 y no intervino en los casos 1 y 6b. Mejoró la respuesta que entrega el sistema, aunque las trazas muestran que el modelo siguió eligiendo un idioma por su cuenta.
+
+La comprobación de los otros casos tuvo un resultado mixto. En Pydantic AI local, una repetición del caso 1 citó un texto descriptivo como fuente en lugar del identificador de fila. El verificador detectó el error. La traza confirma que el control no intervino y devolvió esa salida sin cambios; aun así, el resultado observado fue 2/3 y se mantiene en la tabla. Por tanto, la repetición no permite afirmar que todos los casos previos siguieran acertando. Además, la lista de términos del control no reconoce todas las formas de expresar un idioma.

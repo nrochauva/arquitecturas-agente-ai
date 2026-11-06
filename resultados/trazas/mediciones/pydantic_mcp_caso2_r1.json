@@ -1,0 +1,116 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "2",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en inglés en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "corpus": "demo",
+        "idioma": "en"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "B",
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:A",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 4,
+        "d": 1,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:B",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 3,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "sistemas": [
+          {
+            "sistema": "A",
+            "wer": 0.06,
+            "fuente": "demo:en:A"
+          },
+          {
+            "sistema": "B",
+            "wer": 0.06,
+            "fuente": "demo:en:B"
+          }
+        ],
+        "fuentes": [
+          "demo:en:A",
+          "demo:en:B"
+        ],
+        "idioma": "en",
+        "estado": "comparacion",
+        "decision": "empate",
+        "corpus": "demo",
+        "limitaciones": "Los resultados provienen de datos agregados (n=100) en el corpus demo con normalización en minúsculas sin puntuación, versión v1 y partición test. Ambas filas tienen exactamente la misma configuración y el mismo WER, por lo que no es posible declarar un ganador unívoco y se establece un empate técnico.",
+        "ganador": null
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los resultados provienen de datos agregados (n=100) en el corpus demo con normalización en minúsculas sin puntuación, versión v1 y partición test. Ambas filas tienen exactamente la misma configuración y el mismo WER, por lo que no es posible declarar un ganador unívoco y se establece un empate técnico."
+  },
+  "terminacion": "salida final"
+}

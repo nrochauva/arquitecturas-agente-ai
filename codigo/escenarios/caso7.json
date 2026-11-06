@@ -1,0 +1,103 @@
+{
+  "escenario": "Copia alterada para el caso 7: B evaluado en otra partición.",
+  "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales.",
+  "sistemas": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "filas": {
+    "demo:es:A": {
+      "fila": "demo:es:A",
+      "corpus": "demo",
+      "idioma": "es",
+      "sistema": "A",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 8,
+      "d": 2,
+      "i": 1,
+      "n": 100
+    },
+    "demo:es:B": {
+      "fila": "demo:es:B",
+      "corpus": "demo",
+      "idioma": "es",
+      "sistema": "B",
+      "version": "v1",
+      "particion": "dev",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 5,
+      "d": 3,
+      "i": 1,
+      "n": 100
+    },
+    "demo:es:C": {
+      "fila": "demo:es:C",
+      "corpus": "demo",
+      "idioma": "es",
+      "sistema": "C",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 0,
+      "d": 0,
+      "i": 150,
+      "n": 100
+    },
+    "demo:en:A": {
+      "fila": "demo:en:A",
+      "corpus": "demo",
+      "idioma": "en",
+      "sistema": "A",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 4,
+      "d": 1,
+      "i": 1,
+      "n": 100
+    },
+    "demo:en:B": {
+      "fila": "demo:en:B",
+      "corpus": "demo",
+      "idioma": "en",
+      "sistema": "B",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 3,
+      "d": 2,
+      "i": 1,
+      "n": 100
+    },
+    "privado:es:A": {
+      "fila": "privado:es:A",
+      "corpus": "privado",
+      "idioma": "es",
+      "sistema": "A",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 1,
+      "d": 1,
+      "i": 1,
+      "n": 100
+    },
+    "privado:es:B": {
+      "fila": "privado:es:B",
+      "corpus": "privado",
+      "idioma": "es",
+      "sistema": "B",
+      "version": "v1",
+      "particion": "test",
+      "normalizacion": "minusculas_sin_puntuacion",
+      "s": 1,
+      "d": 1,
+      "i": 0,
+      "n": 100
+    }
+  }
+}

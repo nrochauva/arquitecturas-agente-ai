@@ -1,0 +1,139 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "2",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en inglés en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "en"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "en",
+        "con_resultados": [
+          "A",
+          "B"
+        ],
+        "sin_resultados": [
+          "C",
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "sistema": "A",
+        "idioma": "en"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "B",
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:A",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 4,
+        "d": 1,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:B",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 3,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "ganador": null,
+        "decision": "empate",
+        "idioma": "en",
+        "estado": "comparacion",
+        "fuentes": [
+          "demo:en:A",
+          "demo:en:B"
+        ],
+        "corpus": "demo",
+        "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio (corpus demo, idioma en), sin audio ni modelos reales asociados. Ambas filas comparten versión v1, partición test y normalización minusculas_sin_puntuacion.",
+        "sistemas": [
+          {
+            "sistema": "A",
+            "fuente": "demo:en:A",
+            "wer": 0.06
+          },
+          {
+            "fuente": "demo:en:B",
+            "sistema": "B",
+            "wer": 0.06
+          }
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio (corpus demo, idioma en), sin audio ni modelos reales asociados. Ambas filas comparten versión v1, partición test y normalización minusculas_sin_puntuacion."
+  },
+  "terminacion": "salida final"
+}

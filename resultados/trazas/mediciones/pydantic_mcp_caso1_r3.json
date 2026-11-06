@@ -1,0 +1,116 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "1",
+  "repeticion": 3,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "corpus": "demo",
+        "idioma": "es"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "sistema": "B",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:B",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 5,
+        "d": 3,
+        "i": 1,
+        "n": 100,
+        "wer": 0.09
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "corpus": "demo",
+        "ganador": "B",
+        "decision": "ganador",
+        "limitaciones": "Los datos provienen de un corpus de demostración agregado y no deben utilizarse para inferencias clínicas o producción. Los resultados corresponden a la partición test, versión v1, con normalización minúsculas sin puntuación.",
+        "sistemas": [
+          {
+            "wer": 0.11,
+            "sistema": "A",
+            "fuente": "demo:es:A"
+          },
+          {
+            "fuente": "demo:es:B",
+            "sistema": "B",
+            "wer": 0.09
+          }
+        ],
+        "fuentes": [
+          "demo:es:A",
+          "demo:es:B"
+        ],
+        "estado": "comparacion",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.09,
+        "fuente": "demo:es:B"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "B",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:B"
+    ],
+    "limitaciones": "Los datos provienen de un corpus de demostración agregado y no deben utilizarse para inferencias clínicas o producción. Los resultados corresponden a la partición test, versión v1, con normalización minúsculas sin puntuación."
+  },
+  "terminacion": "salida final"
+}

@@ -1,0 +1,99 @@
+{
+  "configuracion": "smolagents",
+  "caso": "6b",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en el corpus demo. Aclaración del usuario tras la pregunta anterior: el idioma es inglés.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": 1,
+      "contenido": "{'corpus': 'demo', 'idioma': 'en', 'con_resultados': ['A', 'B'], 'sin_resultados': ['C', 'D'], 'procedencia': 'Conteos sintéticos del ejercicio, sin audio ni modelos reales.'}"
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "en",
+        "sistema": "B",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": 2,
+      "contenido": "{'estado': 'disponible', 'fila': 'demo:en:B', 'corpus': 'demo', 'idioma': 'en', 'sistema': 'B', 'version': 'v1', 'particion': 'test', 'normalizacion': 'minusculas_sin_puntuacion', 's': 3, 'd': 2, 'i': 1, 'n': 100, 'wer': 0.06}\n{'estado': 'disponible', 'fila': 'demo:en:A', 'corpus': 'demo', 'idioma': 'en', 'sistema': 'A', 'version': 'v1', 'particion': 'test', 'normalizacion': 'minusculas_sin_puntuacion', 's': 4, 'd': 1, 'i': 1, 'n': 100, 'wer': 0.06}"
+    },
+    {
+      "accion": "final_answer",
+      "argumentos": {
+        "answer": "{\n  \"estado\": \"comparacion\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"en\",\n  \"sistemas\": [\n    {\n      \"sistema\": \"A\",\n      \"wer\": 0.06,\n      \"fuente\": \"demo:en:A\"\n    },\n    {\n      \"sistema\": \"B\",\n      \"wer\": 0.06,\n      \"fuente\": \"demo:en:B\"\n    }\n  ],\n  \"decision\": \"empate\",\n  \"ganador\": null,\n  \"fuentes\": [\n    \"demo:en:A\",\n    \"demo:en:B\"\n  ],\n  \"limitaciones\": \"Los datos provienen de conteos sintéticos del ejercicio en el corpus demo, sin audio ni modelos reales, por lo que los resultados agregados tienen limitaciones de representatividad y no reflejan un rendimiento en escenarios clínicos reales.\"\n}"
+      }
+    },
+    {
+      "observacion": 3,
+      "contenido": "{\n  \"estado\": \"comparacion\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"en\",\n  \"sistemas\": [\n    {\n      \"sistema\": \"A\",\n      \"wer\": 0.06,\n      \"fuente\": \"demo:en:A\"\n    },\n    {\n      \"sistema\": \"B\",\n      \"wer\": 0.06,\n      \"fuente\": \"demo:en:B\"\n    }\n  ],\n  \"decision\": \"empate\",\n  \"ganador\": null,\n  \"fuentes\": [\n    \"demo:en:A\",\n    \"demo:en:B\"\n  ],\n  \"limitaciones\": \"Los datos provienen de conteos sintéticos del ejercicio en el corpus demo, sin audio ni modelos reales, por lo que los resultados agregados tienen limitaciones de representatividad y no reflejan un rendimiento en escenarios clínicos reales.\"\n}"
+    }
+  ],
+  "salida_modelo": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio en el corpus demo, sin audio ni modelos reales, por lo que los resultados agregados tienen limitaciones de representatividad y no reflejan un rendimiento en escenarios clínicos reales."
+  },
+  "control_intervino": false,
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio en el corpus demo, sin audio ni modelos reales, por lo que los resultados agregados tienen limitaciones de representatividad y no reflejan un rendimiento en escenarios clínicos reales."
+  },
+  "terminacion": "salida final"
+}

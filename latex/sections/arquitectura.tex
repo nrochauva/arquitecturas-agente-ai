@@ -1,0 +1,30 @@
+\section{Planteamiento y arquitectura}
+
+Se construyó un asistente que compara sistemas de reconocimiento automático del habla, o ASR, por idioma. Se usan datos sintéticos con recuentos de errores; no se procesan grabaciones ni se ejecutan modelos ASR. El modelo de lenguaje, o LLM, interpreta la petición y propone una respuesta. El programa comprueba los permisos, el formato y la coincidencia con los datos.
+
+La Figura~\ref{fig:arquitectura} muestra esta separación. El núcleo de la aplicación, llamado dominio, reúne la lectura de datos, el cálculo de WER y las reglas de comparación. Las tres versiones con agente reutilizan ese núcleo. La función \texttt{referencia} resuelve la tarea sin LLM cuando recibe parámetros explícitos y permite verificar las respuestas de los agentes.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize, caja/.style={draw, rounded corners=2pt, minimum height=7mm, align=center, inner sep=3pt}, flecha/.style={-{Stealth[length=2mm]}}]
+\node[caja] (host) {Host (coordinador)\\programa Python};
+\node[caja, right=9mm of host] (agente) {Agente\\smolagents o Pydantic AI};
+\node[caja, right=9mm of agente] (modelo) {Gemini\\servicio externo};
+\node[caja, below=7mm of host] (verif) {Contrato y\\\texttt{validar\_resultado}};
+\node[caja, below=7mm of agente] (cliente) {Herramientas locales\\o cliente MCP};
+\node[caja, right=9mm of cliente] (servidor) {Servidor MCP\\proceso stdio~\cite{mcpTransports}};
+\node[caja, below=6mm of cliente] (dominio) {Núcleo sin LLM};
+\node[caja, right=9mm of dominio] (datos) {Datos sintéticos};
+\draw[flecha] (host) -- (agente);
+\draw[flecha, <->] (agente) -- (modelo);
+\draw[flecha] (agente) -- (cliente);
+\draw[flecha] (cliente) -- (servidor);
+\draw[flecha] (cliente) -- (dominio);
+\draw[flecha] (servidor) -- (dominio);
+\draw[flecha] (dominio) -- (datos);
+\draw[flecha] (agente.south west) -- (verif.north east);
+\draw[flecha] (verif) |- (dominio);
+\end{tikzpicture}
+\caption{Componentes del asistente. El modelo solo ve instrucciones, petición, descripciones de herramientas y observaciones. La verificación recalcula desde los datos sin pasar por el modelo.}
+\label{fig:arquitectura}
+\end{figure}

@@ -1,0 +1,32 @@
+{
+  "configuracion": "referencia",
+  "caso": "2",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en inglés en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Solo corpus demo y conteos agregados; no permite afirmar significación, generalización ni conclusiones clínicas."
+  },
+  "terminacion": "salida final"
+}

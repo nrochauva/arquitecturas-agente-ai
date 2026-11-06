@@ -1,0 +1,23 @@
+{
+  "configuracion": "referencia",
+  "caso": "8",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "fila_invalida",
+    "detalle": "demo:es:B: Conteos no válidos",
+    "falta": [
+      "demo:es:B"
+    ],
+    "siguiente_paso": "Corregir los conteos de esas filas."
+  },
+  "terminacion": "salida final"
+}

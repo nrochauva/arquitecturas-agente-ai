@@ -1,0 +1,10 @@
+# Especificación directa; la versión exacta de todo el entorno está en requirements-lock.txt.
+# mcp se fija por debajo de 2: la 2.x eliminó mcp.server.fastmcp y oculta el mensaje de error
+# de las herramientas, y la denegación de corpus necesita conservar su motivo.
+mcp==1.30.0
+pydantic>=2,<3
+pydantic-ai-slim[google,mcp]
+# litellm 1.108 importa de mcp 2.x al recibir herramientas, aunque solo lo declara en extras,
+# así que el instalador no detecta el conflicto con mcp 1.30.
+litellm==1.99.4
+smolagents[litellm]

@@ -1,0 +1,88 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "8",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "fila_invalida",
+        "fila": "demo:es:B",
+        "motivo": "Conteos no válidos"
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "sistemas": [
+          "A",
+          "B"
+        ],
+        "motivo": "fila_invalida",
+        "detalle": "El sistema B presenta una fila inválida por conteos no válidos, por lo que no es posible realizar una comparación válida y equitativa con el sistema A.",
+        "falta": [
+          "datos válidos para el sistema B"
+        ],
+        "idioma": "es",
+        "corpus": "demo",
+        "estado": "datos_insuficientes",
+        "siguiente_paso": "Verificar el estado del sistema B en el corpus demo y corregir o descartar la fila inválida antes de reintentar la comparación."
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "fila_invalida",
+    "detalle": "El sistema B presenta una fila inválida por conteos no válidos, por lo que no es posible realizar una comparación válida y equitativa con el sistema A.",
+    "falta": [
+      "datos válidos para el sistema B"
+    ],
+    "siguiente_paso": "Verificar el estado del sistema B en el corpus demo y corregir o descartar la fila inválida antes de reintentar la comparación."
+  },
+  "terminacion": "salida final"
+}

@@ -1,0 +1,9 @@
+\section{Pydantic AI y publicación mediante MCP}
+
+Pydantic AI recibe el contrato como tipo de salida~\cite{pydanticOutput}. También recibe \texttt{Dependencias}, con los corpus autorizados y la ruta del fichero de datos~\cite{pydanticDeps}. Esta inyección permite que el programa proporcione los recursos sin delegar su elección al modelo. Al LLM se envían instrucciones, petición, descripciones de herramientas y resultados de las llamadas. La configuración de permisos, la ruta y las filas no consultadas permanecen en el programa.
+
+El servidor MCP publica las mismas dos herramientas, el recurso \texttt{asr://politica} y el prompt \texttt{comparar}. El programa Python que coordina la ejecución es el \emph{host}; \texttt{MCPToolset} es su cliente MCP, y \texttt{servidor\_mcp.py} es el servidor. Cliente y servidor se comunican mediante stdio, la entrada y salida estándar de un proceso separado~\cite{pydanticMCP}.
+
+El recurso contiene la política de evaluación y el prompt contiene las instrucciones de comparación. El host solicita ambos y combina sus textos, porque publicarlos no los añade automáticamente al contexto del modelo. Una prueba confirma que las instrucciones resultantes coinciden con las de la versión local. Antes de usar el LLM se probaron el descubrimiento, las consultas, la denegación y los fallos del servidor.
+
+Se usó el paquete \texttt{mcp} 1.30.0 y se negoció la revisión del protocolo 2025-11-25, que incluye inicialización~\cite{mcpLifecycle,mcpPython}. Son dos versiones distintas, ya que una identifica la biblioteca instalada y otra las reglas de comunicación. Se descartó \texttt{mcp} 2.x porque elimina \texttt{mcp.server.fastmcp} y en la prueba ocultaba el motivo de los errores de herramienta. También se fijó \texttt{litellm} 1.99.4 porque la versión 1.108 fallaba al usar herramientas con \texttt{mcp} 1.30.0.

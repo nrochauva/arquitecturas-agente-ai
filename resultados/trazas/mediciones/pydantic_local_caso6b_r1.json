@@ -1,0 +1,200 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "6b",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en el corpus demo. Aclaración del usuario tras la pregunta anterior: el idioma es inglés.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "en",
+        "con_resultados": [
+          "A",
+          "B"
+        ],
+        "sin_resultados": [
+          "C",
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "corpus": "demo",
+        "idioma": "en"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:A",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 4,
+        "d": 1,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:B",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 3,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales. Ambos sistemas tienen exactamente la misma WER (0.06) bajo la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion).",
+        "decision": "empate",
+        "ganador": "null",
+        "estado": "comparacion",
+        "corpus": "demo",
+        "fuentes": [
+          "demo:en:A",
+          "demo:en:B"
+        ],
+        "idioma": "en",
+        "sistemas": [
+          {
+            "wer": 0.06,
+            "fuente": "demo:en:A",
+            "sistema": "A"
+          },
+          {
+            "wer": 0.06,
+            "sistema": "B",
+            "fuente": "demo:en:B"
+          }
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": [
+        {
+          "type": "value_error",
+          "loc": [],
+          "msg": "Value error, Un empate no lleva ganador y una victoria sí",
+          "input": {
+            "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales. Ambos sistemas tienen exactamente la misma WER (0.06) bajo la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion).",
+            "decision": "empate",
+            "ganador": "null",
+            "estado": "comparacion",
+            "corpus": "demo",
+            "fuentes": [
+              "demo:en:A",
+              "demo:en:B"
+            ],
+            "idioma": "en",
+            "sistemas": [
+              {
+                "wer": 0.06,
+                "fuente": "demo:en:A",
+                "sistema": "A"
+              },
+              {
+                "wer": 0.06,
+                "sistema": "B",
+                "fuente": "demo:en:B"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "sistemas": [
+          {
+            "sistema": "A",
+            "wer": 0.06,
+            "fuente": "demo:en:A"
+          },
+          {
+            "wer": 0.06,
+            "sistema": "B",
+            "fuente": "demo:en:B"
+          }
+        ],
+        "fuentes": [
+          "demo:en:A",
+          "demo:en:B"
+        ],
+        "decision": "empate",
+        "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales. Ambos sistemas tienen exactamente la misma WER (0.06) bajo la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion).",
+        "corpus": "demo",
+        "idioma": "en",
+        "ganador": null,
+        "estado": "comparacion"
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales. Ambos sistemas tienen exactamente la misma WER (0.06) bajo la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion)."
+  },
+  "terminacion": "salida final"
+}

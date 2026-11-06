@@ -1,0 +1,116 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "3",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y C en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "A"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "C"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:C",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "C",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 0,
+        "d": 0,
+        "i": 150,
+        "n": 100,
+        "wer": 1.5
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "idioma": "es",
+        "limitaciones": "Se comparan métricas agregadas sobre un corpus de demostración con 100 muestras (n=100) para cada sistema. Aunque ambos comparten partición test, versión v1 y normalización de minúsculas sin puntuación, los datos agregados no permiten evaluar variabilidad por locutor o análisis estadístico detallado de errores.",
+        "decision": "ganador",
+        "estado": "comparacion",
+        "ganador": "A",
+        "fuentes": [
+          "demo:es:A",
+          "demo:es:C"
+        ],
+        "corpus": "demo",
+        "sistemas": [
+          {
+            "wer": 0.11,
+            "sistema": "A",
+            "fuente": "demo:es:A"
+          },
+          {
+            "wer": 1.5,
+            "sistema": "C",
+            "fuente": "demo:es:C"
+          }
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "C",
+        "wer": 1.5,
+        "fuente": "demo:es:C"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "A",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:C"
+    ],
+    "limitaciones": "Se comparan métricas agregadas sobre un corpus de demostración con 100 muestras (n=100) para cada sistema. Aunque ambos comparten partición test, versión v1 y normalización de minúsculas sin puntuación, los datos agregados no permiten evaluar variabilidad por locutor o análisis estadístico detallado de errores."
+  },
+  "terminacion": "salida final"
+}

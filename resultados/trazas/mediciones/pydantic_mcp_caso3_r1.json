@@ -1,0 +1,116 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "3",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y C en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "corpus": "demo",
+        "idioma": "es"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "sistema": "C",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:C",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "C",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 0,
+        "d": 0,
+        "i": 150,
+        "n": 100,
+        "wer": 1.5
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "limitaciones": "Los resultados provienen de datos agregados del corpus demo. El sistema A tiene un WER de 0.11 (fuente demo:es:A) y el sistema C tiene un WER de 1.5 (fuente demo:es:C). Ambos sistemas comparten la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion).",
+        "idioma": "es",
+        "decision": "ganador",
+        "corpus": "demo",
+        "ganador": "A",
+        "sistemas": [
+          {
+            "sistema": "A",
+            "fuente": "demo:es:A",
+            "wer": 0.11
+          },
+          {
+            "wer": 1.5,
+            "fuente": "demo:es:C",
+            "sistema": "C"
+          }
+        ],
+        "estado": "comparacion",
+        "fuentes": [
+          "demo:es:A",
+          "demo:es:C"
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "C",
+        "wer": 1.5,
+        "fuente": "demo:es:C"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "A",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:C"
+    ],
+    "limitaciones": "Los resultados provienen de datos agregados del corpus demo. El sistema A tiene un WER de 0.11 (fuente demo:es:A) y el sistema C tiene un WER de 1.5 (fuente demo:es:C). Ambos sistemas comparten la misma versión (v1), partición (test) y normalización (minusculas_sin_puntuacion)."
+  },
+  "terminacion": "salida final"
+}

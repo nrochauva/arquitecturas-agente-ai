@@ -1,0 +1,49 @@
+\section{Dominio, herramientas y contratos}
+
+La tasa de error de palabras, o WER, se calcula como $(S+D+I)/N$, donde $S$ son sustituciones, $D$ borrados, $I$ inserciones y $N$ palabras de referencia. La función exige enteros no negativos, $N>0$ y $S+D\le N$. La WER se expresa como razón, no como porcentaje, y puede superar uno por las inserciones. El sistema D está en el catálogo, pero carece de resultados. Cada fila incluye un identificador y los metadatos de corpus, versión, idioma, partición y normalización.
+
+La WER se calcula dentro del programa y se devuelve junto a la fila. Así, el modelo recibe el valor y su fuente sin tener que copiar los conteos a otra herramienta. Se pierde una llamada con la que observar su actuación, pero se evita que altere los argumentos del cálculo. El modelo dispone de dos herramientas, documentadas en la Tabla~\ref{tab:herramientas}, \texttt{sistemas} para consultar la disponibilidad y \texttt{resultados} para recuperar una fila. Ninguna admite rutas ni ejecución de código. Si se solicita un corpus no autorizado, el dominio lanza una excepción; el comportamiento de cada agente ante ella se analiza en los resultados.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Documentación de las dos herramientas de consulta.}
+\label{tab:herramientas}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{6.1cm}>{\raggedright\arraybackslash}p{6.1cm}}
+\toprule
+ & Herramienta \texttt{sistemas} & Herramienta \texttt{resultados} \\
+\midrule
+Finalidad & Descubrir qué sistemas del catálogo tienen filas en un corpus e idioma & Recuperar la fila de un sistema con metadatos y WER \\
+Entradas & \texttt{corpus} e \texttt{idioma}, texto & \texttt{corpus}, \texttt{idioma} y \texttt{sistema}, texto \\
+Valores admitidos & Corpus \texttt{demo}. Cualquier código de idioma & Corpus \texttt{demo}. Sistemas del catálogo A, B, C y D \\
+Salida & Listas \texttt{con\_resultados} y \texttt{sin\_resultados} con la procedencia & Estado \texttt{disponible} con identificador, conteos, metadatos y WER \\
+Ausentes & Lista vacía si el idioma no tiene filas & Estados \texttt{sin\_resultados} o \texttt{sistema\_desconocido}, nunca ceros \\
+Errores & Excepción \texttt{AccesoDenegado} con motivo & Igual, y \texttt{fila\_invalida} con motivo si los conteos son imposibles \\
+Restricción & \multicolumn{2}{>{\raggedright\arraybackslash}p{12.5cm}}{Comprobada en el dominio antes de abrir los datos. Local y servidor la aplican por igual, de modo que no depende del prompt. La procedencia indica que los datos son sintéticos.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El contrato de salida define dos respuestas posibles, seleccionadas por el campo \texttt{estado}; esta estructura se denomina unión discriminada en Pydantic. La Figura~\ref{fig:contrato} muestra sus campos. La abstención carece de campos para un ganador o una WER, de modo que esos valores no pueden expresarse en ella, y admite un idioma nulo cuando el usuario no lo indicó.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize, caja/.style={draw, rounded corners=2pt, align=left, inner sep=4pt, text width=6.2cm}, flecha/.style={-{Stealth[length=2mm]}}]
+\node[draw, rounded corners=2pt, align=center, inner sep=3pt] (estado) {Salida del modelo\\campo \texttt{estado}};
+\node[caja, below left=6mm and 4mm of estado.south] (comp) {\textbf{\texttt{Comparacion}}\\
+\texttt{idioma}, obligatorio\\
+\texttt{sistemas}, con WER y fuente\\
+\texttt{decision} y \texttt{ganador}, nulo si hay empate\\
+\texttt{fuentes} y \texttt{limitaciones}};
+\node[caja, below right=6mm and 4mm of estado.south] (ins) {\textbf{\texttt{DatosInsuficientes}}\\
+\texttt{idioma}, admite nulo\\
+\texttt{sistemas}, solo nombres\\
+\texttt{motivo} y \texttt{detalle}\\
+\texttt{falta} y \texttt{siguiente\_paso}};
+\draw[flecha] (estado.south) -- node[above left] {\texttt{comparacion}} (comp.north);
+\draw[flecha] (estado.south) -- node[above right] {\texttt{datos\_insuficientes}} (ins.north);
+\end{tikzpicture}
+\caption{Contrato de salida. Cada respuesta admite solo sus campos y ambas incluyen \texttt{corpus}.}
+\label{fig:contrato}
+\end{figure}
+
+Pydantic comprueba tipos, rangos y campos obligatorios. En smolagents se envía el esquema JSON como parte de la petición y se valida la respuesta al terminar. Pydantic AI incorpora los tipos al mecanismo de salida del agente. Después, \texttt{validar\_resultado} relee los datos y comprueba estado, motivo, cifras, decisión y fuentes. El texto libre de las limitaciones queda fuera de esta comprobación.

@@ -1,0 +1,69 @@
+{
+  "configuracion": "smolagents",
+  "caso": "8",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": 1,
+      "contenido": "{'corpus': 'demo', 'idioma': 'es', 'con_resultados': ['A', 'B', 'C'], 'sin_resultados': ['D'], 'procedencia': 'Conteos sintéticos del ejercicio, sin audio ni modelos reales.'}"
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "A"
+      }
+    },
+    {
+      "observacion": 2,
+      "contenido": "{'estado': 'disponible', 'fila': 'demo:es:A', 'corpus': 'demo', 'idioma': 'es', 'sistema': 'A', 'version': 'v1', 'particion': 'test', 'normalizacion': 'minusculas_sin_puntuacion', 's': 8, 'd': 2, 'i': 1, 'n': 100, 'wer': 0.11}"
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "sistema": "B",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": 3,
+      "contenido": "{'estado': 'fila_invalida', 'fila': 'demo:es:B', 'motivo': 'Conteos no válidos'}"
+    },
+    {
+      "accion": "final_answer",
+      "argumentos": {
+        "answer": "{\n  \"estado\": \"datos_insuficientes\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    \"A\",\n    \"B\"\n  ],\n  \"motivo\": \"fila_invalida\",\n  \"detalle\": \"El sistema B presenta una fila inválida con conteos no válidos, por lo que no es posible obtener una medida de WER comparable.\",\n  \"falta\": [\n    \"wer_sistema_B\"\n  ],\n  \"siguiente_paso\": \"Verificar los datos de la fuente para el sistema B y corregir los conteos inválidos antes de intentar una nueva comparación.\"\n}"
+      }
+    },
+    {
+      "observacion": 4,
+      "contenido": "{\n  \"estado\": \"datos_insuficientes\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    \"A\",\n    \"B\"\n  ],\n  \"motivo\": \"fila_invalida\",\n  \"detalle\": \"El sistema B presenta una fila inválida con conteos no válidos, por lo que no es posible obtener una medida de WER comparable.\",\n  \"falta\": [\n    \"wer_sistema_B\"\n  ],\n  \"siguiente_paso\": \"Verificar los datos de la fuente para el sistema B y corregir los conteos inválidos antes de intentar una nueva comparación.\"\n}"
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "fila_invalida",
+    "detalle": "El sistema B presenta una fila inválida con conteos no válidos, por lo que no es posible obtener una medida de WER comparable.",
+    "falta": [
+      "wer_sistema_B"
+    ],
+    "siguiente_paso": "Verificar los datos de la fuente para el sistema B y corregir los conteos inválidos antes de intentar una nueva comparación."
+  },
+  "terminacion": "salida final"
+}

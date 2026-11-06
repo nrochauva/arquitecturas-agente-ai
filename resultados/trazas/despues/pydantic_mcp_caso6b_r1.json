@@ -1,0 +1,164 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "6b",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en el corpus demo. Aclaración del usuario tras la pregunta anterior: el idioma es inglés.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "en",
+        "con_resultados": [
+          "A",
+          "B"
+        ],
+        "sin_resultados": [
+          "C",
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "A",
+        "idioma": "en",
+        "corpus": "demo"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:A",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 4,
+        "d": 1,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:en:B",
+        "corpus": "demo",
+        "idioma": "en",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 3,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.06
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "corpus": "demo",
+        "limitaciones": "Los datos son agregados (100 muestras por sistema) y proceden de conteos sintéticos del ejercicio sin audio ni modelos reales, lo que limita la generalización a escenarios de producción. Además, las métricas se basan en una única normalización (minúsculas sin puntuación) y partición (test).",
+        "sistemas": [
+          {
+            "wer": 0.06,
+            "fuente": "demo:en:A",
+            "sistema": "A"
+          },
+          {
+            "fuente": "demo:en:B",
+            "sistema": "B",
+            "wer": 0.06
+          }
+        ],
+        "fuentes": [
+          "demo:en:A",
+          "demo:en:B"
+        ],
+        "estado": "comparacion",
+        "decision": "empate",
+        "ganador": null,
+        "idioma": "en"
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida_modelo": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos son agregados (100 muestras por sistema) y proceden de conteos sintéticos del ejercicio sin audio ni modelos reales, lo que limita la generalización a escenarios de producción. Además, las métricas se basan en una única normalización (minúsculas sin puntuación) y partición (test)."
+  },
+  "control_intervino": false,
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Los datos son agregados (100 muestras por sistema) y proceden de conteos sintéticos del ejercicio sin audio ni modelos reales, lo que limita la generalización a escenarios de producción. Además, las métricas se basan en una única normalización (minúsculas sin puntuación) y partición (test)."
+  },
+  "terminacion": "salida final"
+}

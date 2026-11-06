@@ -1,0 +1,139 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "6",
+  "repeticion": 3,
+  "peticion": "Compara los sistemas A y B en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "es",
+        "con_resultados": [
+          "A",
+          "B",
+          "C"
+        ],
+        "sin_resultados": [
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "sistema": "A",
+        "corpus": "demo"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "sistema": "B",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:B",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 5,
+        "d": 3,
+        "i": 1,
+        "n": 100,
+        "wer": 0.09
+      }
+    },
+    {
+      "accion": "final_result_Comparacion",
+      "argumentos": {
+        "sistemas": [
+          {
+            "fuente": "demo:es:A",
+            "sistema": "A",
+            "wer": 0.11
+          },
+          {
+            "fuente": "demo:es:B",
+            "sistema": "B",
+            "wer": 0.09
+          }
+        ],
+        "estado": "comparacion",
+        "fuentes": [
+          "demo:es:A",
+          "demo:es:B"
+        ],
+        "limitaciones": "Los datos proceden de conteos sintéticos del ejercicio, sin audio ni modelos reales. Las métricas se basan en datos agregados de WER, sin acceso a transcripciones nivel frase.",
+        "idioma": "es",
+        "corpus": "demo",
+        "decision": "ganador",
+        "ganador": "B"
+      }
+    },
+    {
+      "observacion": "final_result_Comparacion",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.09,
+        "fuente": "demo:es:B"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "B",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:B"
+    ],
+    "limitaciones": "Los datos proceden de conteos sintéticos del ejercicio, sin audio ni modelos reales. Las métricas se basan en datos agregados de WER, sin acceso a transcripciones nivel frase."
+  },
+  "terminacion": "salida final"
+}

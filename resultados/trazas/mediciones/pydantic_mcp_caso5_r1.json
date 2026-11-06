@@ -1,0 +1,68 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "5",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en francés en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "fr",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "fr",
+        "con_resultados": [],
+        "sin_resultados": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "siguiente_paso": "Consultar un idioma con resultados disponibles en el corpus demo, como el español (es) o el inglés (en).",
+        "falta": [
+          "resultados_para_frances"
+        ],
+        "motivo": "idioma_sin_resultados",
+        "estado": "datos_insuficientes",
+        "detalle": "No hay resultados disponibles para el idioma francés en el corpus demo para los sistemas solicitados (A y B).",
+        "idioma": "fr",
+        "corpus": "demo",
+        "sistemas": [
+          "A",
+          "B"
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "fr",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "idioma_sin_resultados",
+    "detalle": "No hay resultados disponibles para el idioma francés en el corpus demo para los sistemas solicitados (A y B).",
+    "falta": [
+      "resultados_para_frances"
+    ],
+    "siguiente_paso": "Consultar un idioma con resultados disponibles en el corpus demo, como el español (es) o el inglés (en)."
+  },
+  "terminacion": "salida final"
+}

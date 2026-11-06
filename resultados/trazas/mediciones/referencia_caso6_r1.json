@@ -1,0 +1,23 @@
+{
+  "configuracion": "referencia",
+  "caso": "6",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": null,
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "parametro_ausente",
+    "detalle": "La petición no indica el idioma.",
+    "falta": [
+      "idioma"
+    ],
+    "siguiente_paso": "Indicar en qué idioma se quiere comparar."
+  },
+  "terminacion": "salida final"
+}

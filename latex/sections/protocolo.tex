@@ -1,0 +1,30 @@
+\section{Protocolo de evaluación}
+
+Las entradas, los resultados esperados y los límites se fijaron en \texttt{casos.json} antes de consultar al modelo. Las pruebas de integración usaron otras peticiones y solo comprobaron que las bibliotecas funcionaban. La evaluación comparó la referencia sin LLM, smolagents, Pydantic AI local y Pydantic AI con MCP. La Figura~\ref{fig:evaluacion} resume la secuencia.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\footnotesize, caja/.style={draw, rounded corners=2pt, minimum height=9mm, text width=4.2cm, align=center, inner sep=3pt}, flecha/.style={-{Stealth[length=2mm]}}]
+\node[caja] (casos) {\texttt{casos.json}\\criterios fijados antes};
+\node[caja, right=6mm of casos] (medir) {Cuatro configuraciones\\diez casos, 6b y T1 en MCP};
+\node[caja, right=6mm of medir] (csv) {Cuatro criterios\\\texttt{mediciones.csv}};
+\node[caja, below=5mm of csv] (fallo) {Fallo del caso 6\\control añadido};
+\node[caja, left=6mm of fallo] (repetir) {Casos 1, 6 y 6b repetidos\\con el control activo};
+\node[caja, left=6mm of repetir] (despues) {\texttt{despues.csv}\\comparación antes y después};
+\draw[flecha] (casos) -- (medir);
+\draw[flecha] (medir) -- (csv);
+\draw[flecha] (csv) -- (fallo);
+\draw[flecha] (fallo) -- (repetir);
+\draw[flecha] (repetir) -- (despues);
+\end{tikzpicture}
+\caption{Secuencia de evaluación. Los criterios se fijan antes de medir y la modificación se comprueba sobre los mismos casos.}
+\label{fig:evaluacion}
+\end{figure}
+
+Las tres versiones con LLM usaron \texttt{gemini-3.5-flash-lite} en nivel gratuito, temperatura 0,2 y límites de ocho solicitudes, un reintento de salida, seis pasos y 120 segundos por ejecución. Se dejaron 32 segundos entre ejecuciones. Se mantuvieron los datos, las preguntas y los criterios. La referencia recibió parámetros explícitos, sin interpretar lenguaje natural.
+
+Se probaron diez casos, más el caso 6b, que registró aparte la aclaración del idioma, y T1, que probó en MCP la caída del servidor. La Tabla~\ref{tab:casos} del Anexo~D describe cada uno y su resultado esperado. Los casos 1, comparación en español, y 6, idioma omitido, se repitieron tres veces por agente y el resto una. Los escenarios alterados están en copias; las filas señuelo de \texttt{privado} permiten buscar accesos indebidos.
+
+Se evaluaron cuatro criterios por separado. El \emph{éxito de tarea} indica si se resuelve lo pedido, la \emph{validez estructural} si se cumple el contrato, la \emph{coherencia con la evidencia} si la salida coincide con los datos y los \emph{permisos} si se respeta el acceso autorizado. Una respuesta puede cumplir el contrato y coincidir con los datos, pero responder a una petición distinta.
+
+Los CSV guardan resultado, tiempo, solicitudes, herramientas, reintentos y tokens de entrada y salida. Se registraron seis cortes por error 503 del proveedor, cinco antes del cambio y uno después; todos se repitieron y se excluyeron de los porcentajes. El coste quedó como no disponible, porque Pydantic AI muestra una estimación, pero el proveedor no comunicó un importe. Los ficheros y comandos para reproducir la evaluación se indican en el Anexo~C.

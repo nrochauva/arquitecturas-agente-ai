@@ -1,0 +1,99 @@
+%! Author = nata_
+%! Date = 10/23/2025
+
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=0.9in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{datetime}
+\usepackage{parskip}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[bottom]{footmisc}
+\newcommand{\filafina}{\arrayrulecolor{black!20}\specialrule{0.2pt}{2pt}{2pt}\arrayrulecolor{black}}
+\usepackage{array}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds}
+\usepackage{float}
+\usepackage[labelsep=period,font=small]{caption}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .5ex minus .2ex}{1ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .5ex minus .2ex}{0.6ex}
+\titlespacing*{\paragraph}{0pt}{0.4ex}{0.6em}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+\renewcommand{\refname}{Referencias}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+
+\setlength{\parskip}{4pt}
+
+% páginas solo de flotantes, alineadas arriba y con separación fija
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{14pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \includegraphics[width=0.3\textwidth]{./assets/uva-logo}\\[2cm]
+    {\Huge \textbf{Asistente de comparación ASR con agentes}}\\[1.5ex]
+    {\LARGE Deep Learning aplicado al PLN}\\[2cm]
+    {\Large Nataly Rocha}\\[4cm]
+    \textbf{{\Large Universidad de Valladolid}\\[0.5cm]}
+    \textbf{{\Large Escuela de Ingeniería Informática}\\[0.5cm]}
+    \newdate{hoy}{\the\day}{\the\month}{\the\year}
+    \newcommand{\nextyear}{\the\numexpr\the\year+1\relax}
+    \newcommand{\lastyear}{\the\numexpr\the\year-1\relax}
+    \textbf{{\Large \the\year\ \nextyear}\\[0.5cm]}
+\end{titlepage}
+
+\input{sections/arquitectura}
+
+\input{sections/dominio}
+
+\input{sections/agente}
+
+\input{sections/mcp}
+
+\input{sections/protocolo}
+
+\input{sections/results}
+
+\input{sections/analisis}
+
+\newpage
+
+\bibliographystyle{plainurl}
+\bibliography{bibliography}
+
+\section*{Declaración de uso de IA}
+
+Se usó Claude Code para explicar conceptos y en base a las notas de la estudiante ayudar en la redacción de este documento. Igualmente para la verificación del código escrito, implementación de métodos, contrastar las cifras con los registros y simplificar la redacción.
+
+
+\newpage
+\appendix
+
+\input{sections/apendix}
+
+\end{document}

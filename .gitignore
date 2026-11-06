@@ -1,0 +1,23 @@
+# LaTeX compilado (latexmk)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Secretos y entornos, nunca en el repositorio
+.env
+.venv/
+__pycache__/
+
+# Revisiones externas del plan
+.claude
+.code-review-graph
+
+CLAUDE.md
+terminal.log
+context

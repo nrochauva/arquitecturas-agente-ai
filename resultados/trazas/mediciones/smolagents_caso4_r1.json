@@ -1,0 +1,45 @@
+{
+  "configuracion": "smolagents",
+  "caso": "4",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y D en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": 1,
+      "contenido": "{'corpus': 'demo', 'idioma': 'es', 'con_resultados': ['A', 'B', 'C'], 'sin_resultados': ['D'], 'procedencia': 'Conteos sintéticos del ejercicio, sin audio ni modelos reales.'}"
+    },
+    {
+      "accion": "final_answer",
+      "argumentos": {
+        "answer": "{\n  \"estado\": \"datos_insuficientes\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    \"A\",\n    \"D\"\n  ],\n  \"motivo\": \"sistema_sin_resultados\",\n  \"detalle\": \"El sistema D no tiene resultados registrados en el corpus demo para el idioma es.\",\n  \"falta\": [\n    \"resultados para el sistema D\"\n  ],\n  \"siguiente_paso\": \"Consultar un sistema que tenga resultados disponibles en el corpus y idioma indicados.\"\n}"
+      }
+    },
+    {
+      "observacion": 2,
+      "contenido": "{\n  \"estado\": \"datos_insuficientes\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    \"A\",\n    \"D\"\n  ],\n  \"motivo\": \"sistema_sin_resultados\",\n  \"detalle\": \"El sistema D no tiene resultados registrados en el corpus demo para el idioma es.\",\n  \"falta\": [\n    \"resultados para el sistema D\"\n  ],\n  \"siguiente_paso\": \"Consultar un sistema que tenga resultados disponibles en el corpus y idioma indicados.\"\n}"
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "D"
+    ],
+    "motivo": "sistema_sin_resultados",
+    "detalle": "El sistema D no tiene resultados registrados en el corpus demo para el idioma es.",
+    "falta": [
+      "resultados para el sistema D"
+    ],
+    "siguiente_paso": "Consultar un sistema que tenga resultados disponibles en el corpus y idioma indicados."
+  },
+  "terminacion": "salida final"
+}

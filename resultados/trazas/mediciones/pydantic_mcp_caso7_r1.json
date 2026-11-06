@@ -1,0 +1,98 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "7",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "A"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:B",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "dev",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 5,
+        "d": 3,
+        "i": 1,
+        "n": 100,
+        "wer": 0.09
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "estado": "datos_insuficientes",
+        "siguiente_paso": "Verificar si existen resultados de ambos sistemas bajo la misma partición y normalización en el corpus demo.",
+        "sistemas": [
+          "A",
+          "B"
+        ],
+        "motivo": "incomparable",
+        "corpus": "demo",
+        "idioma": "es",
+        "detalle": "Los sistemas A y B tienen particiones distintas (test y dev respectivamente), por lo que no son comparables directamente.",
+        "falta": [
+          "particiones_iguales"
+        ]
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "incomparable",
+    "detalle": "Los sistemas A y B tienen particiones distintas (test y dev respectivamente), por lo que no son comparables directamente.",
+    "falta": [
+      "particiones_iguales"
+    ],
+    "siguiente_paso": "Verificar si existen resultados de ambos sistemas bajo la misma partición y normalización en el corpus demo."
+  },
+  "terminacion": "salida final"
+}

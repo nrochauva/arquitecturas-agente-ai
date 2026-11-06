@@ -1,0 +1,57 @@
+{
+  "configuracion": "referencia",
+  "caso": "6b",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en el corpus demo. Aclaración del usuario tras la pregunta anterior: el idioma es inglés.",
+  "acciones": [],
+  "salida_modelo": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Solo corpus demo y conteos agregados; no permite afirmar significación, generalización ni conclusiones clínicas."
+  },
+  "control_intervino": false,
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "en",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.06,
+        "fuente": "demo:en:A"
+      },
+      {
+        "sistema": "B",
+        "wer": 0.06,
+        "fuente": "demo:en:B"
+      }
+    ],
+    "decision": "empate",
+    "ganador": null,
+    "fuentes": [
+      "demo:en:A",
+      "demo:en:B"
+    ],
+    "limitaciones": "Solo corpus demo y conteos agregados; no permite afirmar significación, generalización ni conclusiones clínicas."
+  },
+  "terminacion": "salida final"
+}

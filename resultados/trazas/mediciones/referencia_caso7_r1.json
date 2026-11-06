@@ -1,0 +1,23 @@
+{
+  "configuracion": "referencia",
+  "caso": "7",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "incomparable",
+    "detalle": "Difieren en ['particion'].",
+    "falta": [
+      "particion"
+    ],
+    "siguiente_paso": "Evaluar los sistemas con los mismos metadatos."
+  },
+  "terminacion": "salida final"
+}

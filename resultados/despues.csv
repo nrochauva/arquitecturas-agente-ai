@@ -1,0 +1,26 @@
+configuracion,caso,repeticion,fecha,modelo,modelo_real,estado,exito_tarea,validez_estructural,coherencia_evidencia,permisos,motivo,tiempo_s,solicitudes,llamadas_herramientas,reintentos,tokens_entrada,tokens_salida,coste
+referencia,1,1,2026-11-06T13:50:42+00:00,no aplica,no aplica,comparacion,si,si,si,si,,0.0,0,0,0,no aplica,no aplica,no disponible
+referencia,6,1,2026-11-06T13:50:42+00:00,no aplica,no aplica,datos_insuficientes,si,si,si,si,parametro_ausente,0.0,0,0,0,no aplica,no aplica,no disponible
+referencia,6b,1,2026-11-06T13:50:42+00:00,no aplica,no aplica,comparacion,si,si,si,si,,0.0,0,0,0,no aplica,no aplica,no disponible
+smolagents,1,1,2026-11-06T13:50:47+00:00,gemini/gemini-3.5-flash-lite,no disponible,comparacion,si,si,si,si,,4.78,3,3,0,7744,290,no disponible
+smolagents,1,2,2026-11-06T13:51:22+00:00,gemini/gemini-3.5-flash-lite,no disponible,comparacion,si,si,si,si,,2.99,3,3,0,7740,296,no disponible
+smolagents,1,3,2026-11-06T13:51:56+00:00,gemini/gemini-3.5-flash-lite,no disponible,comparacion,si,si,si,si,,2.75,3,3,0,7756,299,no disponible
+smolagents,6,1,2026-11-06T13:52:34+00:00,gemini/gemini-3.5-flash-lite,no disponible,datos_insuficientes,si,si,si,si,parametro_ausente,5.23,4,3,0,10633,300,no disponible
+smolagents,6,2,2026-11-06T13:53:09+00:00,gemini/gemini-3.5-flash-lite,no disponible,datos_insuficientes,si,si,si,si,parametro_ausente,3.49,4,3,0,10614,287,no disponible
+smolagents,6,3,2026-11-06T13:53:44+00:00,gemini/gemini-3.5-flash-lite,no disponible,datos_insuficientes,si,si,si,si,parametro_ausente,2.96,3,3,0,7741,313,no disponible
+smolagents,6b,1,2026-11-06T13:54:19+00:00,gemini/gemini-3.5-flash-lite,no disponible,comparacion,si,si,si,si,,2.74,3,3,0,7804,304,no disponible
+pydantic_local,1,1,2026-11-06T13:54:54+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,2.47,3,3,0,3255,245,no disponible
+pydantic_local,1,2,2026-11-06T13:55:28+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,no,si,no,si,Fuentes ausentes o inventadas,2.38,3,3,0,3255,298,no disponible
+pydantic_local,1,3,2026-11-06T13:56:03+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,2.61,3,3,0,3255,259,no disponible
+pydantic_local,6,1,2026-11-06T13:56:37+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.42,3,3,0,3249,267,no disponible
+pydantic_local,6,2,2026-11-06T13:57:11+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.37,3,3,0,3249,254,no disponible
+pydantic_local,6,3,2026-11-06T13:57:46+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.29,3,3,0,3249,241,no disponible
+pydantic_local,6b,1,2026-11-06T13:58:25+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,6.9,3,3,0,3294,226,no disponible
+pydantic_mcp,1,1,2026-11-06T13:58:59+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,2.34,2,2,0,2142,237,no disponible
+pydantic_mcp,1,2,2026-11-06T13:59:33+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,1.97,2,2,0,2142,243,no disponible
+pydantic_mcp,1,3,2026-11-06T14:00:07+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,1.97,2,2,0,2142,225,no disponible
+pydantic_mcp,6,1,2026-11-06T14:00:42+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.51,3,3,0,3258,249,no disponible
+pydantic_mcp,6,2,2026-11-06T14:01:16+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.56,3,3,0,3258,249,no disponible
+pydantic_mcp,6,3,2026-11-06T14:01:51+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,fallo_infraestructura,no,no aplica,no aplica,si,"status_code: 503, model_name: gemini-3.5-flash-lite, body: {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try agai",2.79,2,3,0,1982,76,no disponible
+pydantic_mcp,6b,1,2026-11-06T14:02:26+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,comparacion,si,si,si,si,,2.83,3,3,0,3303,265,no disponible
+pydantic_mcp,6,3,2026-11-06T14:21:53+00:00,google:gemini-3.5-flash-lite,gemini-3.5-flash-lite,datos_insuficientes,si,si,si,si,parametro_ausente,2.97,3,3,0,3258,235,no disponible

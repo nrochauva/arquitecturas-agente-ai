@@ -1,0 +1,43 @@
+{
+  "configuracion": "smolagents",
+  "caso": "5",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en francés en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "fr"
+      }
+    },
+    {
+      "observacion": 1,
+      "contenido": "{'corpus': 'demo', 'idioma': 'fr', 'con_resultados': [], 'sin_resultados': ['A', 'B', 'C', 'D'], 'procedencia': 'Conteos sintéticos del ejercicio, sin audio ni modelos reales.'}"
+    },
+    {
+      "accion": "final_answer",
+      "argumentos": {
+        "answer": "{\"estado\": \"datos_insuficientes\", \"corpus\": \"demo\", \"idioma\": \"fr\", \"sistemas\": [\"A\", \"B\"], \"motivo\": \"idioma_sin_resultados\", \"detalle\": \"No existen resultados para los sistemas A y B en el idioma francés (fr) para el corpus demo.\", \"falta\": [], \"siguiente_paso\": \"Consultar otro idioma o corpus que contenga resultados disponibles para estos sistemas.\"}"
+      }
+    },
+    {
+      "observacion": 2,
+      "contenido": "{\"estado\": \"datos_insuficientes\", \"corpus\": \"demo\", \"idioma\": \"fr\", \"sistemas\": [\"A\", \"B\"], \"motivo\": \"idioma_sin_resultados\", \"detalle\": \"No existen resultados para los sistemas A y B en el idioma francés (fr) para el corpus demo.\", \"falta\": [], \"siguiente_paso\": \"Consultar otro idioma o corpus que contenga resultados disponibles para estos sistemas.\"}"
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "fr",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "idioma_sin_resultados",
+    "detalle": "No existen resultados para los sistemas A y B en el idioma francés (fr) para el corpus demo.",
+    "falta": [],
+    "siguiente_paso": "Consultar otro idioma o corpus que contenga resultados disponibles para estos sistemas."
+  },
+  "terminacion": "salida final"
+}

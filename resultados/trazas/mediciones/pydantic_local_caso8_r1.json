@@ -1,0 +1,111 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "8",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "es",
+        "con_resultados": [
+          "A",
+          "B",
+          "C"
+        ],
+        "sin_resultados": [
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "A"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "B"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "fila_invalida",
+        "fila": "demo:es:B",
+        "motivo": "Conteos no válidos"
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "idioma": "es",
+        "falta": [
+          "datos_validos_sistema_B"
+        ],
+        "estado": "datos_insuficientes",
+        "motivo": "fila_invalida",
+        "sistemas": [
+          "A",
+          "B"
+        ],
+        "detalle": "El sistema B presenta una fila inválida (conteos no válidos), por lo que no es posible obtener un WER comparable.",
+        "siguiente_paso": "Verificar la fuente de datos del sistema B o utilizar otro sistema que tenga resultados válidos para la comparación.",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "fila_invalida",
+    "detalle": "El sistema B presenta una fila inválida (conteos no válidos), por lo que no es posible obtener un WER comparable.",
+    "falta": [
+      "datos_validos_sistema_B"
+    ],
+    "siguiente_paso": "Verificar la fuente de datos del sistema B o utilizar otro sistema que tenga resultados válidos para la comparación."
+  },
+  "terminacion": "salida final"
+}

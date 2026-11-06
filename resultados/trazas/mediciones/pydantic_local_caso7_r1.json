@@ -1,0 +1,121 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "7",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "sistemas",
+      "contenido": {
+        "corpus": "demo",
+        "idioma": "es",
+        "con_resultados": [
+          "A",
+          "B",
+          "C"
+        ],
+        "sin_resultados": [
+          "D"
+        ],
+        "procedencia": "Conteos sintéticos del ejercicio, sin audio ni modelos reales."
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "A"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "sistema": "B",
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:B",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "B",
+        "version": "v1",
+        "particion": "dev",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 5,
+        "d": 3,
+        "i": 1,
+        "n": 100,
+        "wer": 0.09
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "estado": "datos_insuficientes",
+        "falta": [
+          "particiones_iguales"
+        ],
+        "corpus": "demo",
+        "siguiente_paso": "Verificar y comparar únicamente sistemas que compartan la misma versión, partición y normalización en el corpus demo.",
+        "sistemas": [
+          "A",
+          "B"
+        ],
+        "detalle": "Los sistemas A y B utilizan particiones distintas (A usa la partición test y B usa la partición dev), por lo que no son directamente comparables.",
+        "idioma": "es",
+        "motivo": "incomparable"
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "B"
+    ],
+    "motivo": "incomparable",
+    "detalle": "Los sistemas A y B utilizan particiones distintas (A usa la partición test y B usa la partición dev), por lo que no son directamente comparables.",
+    "falta": [
+      "particiones_iguales"
+    ],
+    "siguiente_paso": "Verificar y comparar únicamente sistemas que compartan la misma versión, partición y normalización en el corpus demo."
+  },
+  "terminacion": "salida final"
+}

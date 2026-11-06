@@ -1,0 +1,20 @@
+
+\section{Análisis crítico}
+
+\paragraph{Qué decide el modelo.} Interpreta la petición, elige las consultas, redacta y propone un ganador o una abstención. La aplicación comprueba contrato, permisos, límites y datos. La referencia resolvió los once casos con parámetros explícitos, de modo que esa parte admite un flujo fijo. El agente aporta la interpretación del lenguaje natural, donde apareció el fallo del idioma.
+
+\paragraph{Salida válida y falsa.} Pydantic comprueba el formato, pero no demuestra que una fuente exista o que las cifras sean ciertas. En \texttt{smoke\_offline.py}, cuatro respuestas construidas pasan el contrato y fallan la verificación, con WER falsa, ganador erróneo, fuente inventada y abstención sin causa. El error de fuente también apareció espontáneamente una vez en las dieciocho ejecuciones del caso 1, sumando antes y después. El campo \texttt{fuente} solo exige texto no vacío. Podría restringirse al formato del identificador, pero esa segunda mejora no se aplicó ni se evaluó. La traza muestra el mismo texto que la procedencia de \texttt{sistemas}; que el modelo lo copiara de allí es una explicación posible, no una causa demostrada.
+
+\paragraph{Qué cambia con MCP.} Las herramientas pasan a otro proceso y sus llamadas se comunican por MCP. Se conservan dominio, datos y contrato. Para que una denegación terminara la ejecución se configuró \texttt{tool\_error\_behavior}. Sin LLM, en una prueba de doscientas llamadas, la mediana fue 0,02 ms en local y 1,27 ms con MCP, una diferencia pequeña frente a los segundos de respuesta del modelo.
+
+Los menores tiempos y tokens de MCP en la Tabla~\ref{tab:resultados} no demuestran que el protocolo mejore el rendimiento. El modelo consultó \texttt{sistemas} en doce de quince ejecuciones locales y en siete con MCP. Esa consulta puede añadir una solicitud, aunque varias herramientas también pueden pedirse juntas. La prueba no permite separar el efecto de la variabilidad del modelo del de la presentación de las herramientas.
+
+\paragraph{Cuándo compensa el código.} Sería útil si hubiera que combinar pasos y cálculos que las herramientas disponibles no cubren. Aquí bastaban dos consultas. La interfaz de las herramientas solo permite leer un fichero elegido por el programa, sin rutas arbitrarias ni ejecución genérica. Los procesos locales conservan los permisos del usuario, por lo que esa interfaz limitada no equivale a aislar el proceso. Con \texttt{CodeAgent} habría que preparar y limitar un contenedor, incluido el acceso a las herramientas, algo que no se ejecutó.
+
+\paragraph{Evidencia que obliga a abstenerse.} Faltan motivos para elegir ganador si no hay filas, falta un parámetro, los conteos son imposibles o difieren versión, partición o normalización. Un mismo $N$ no demuestra que las filas evalúen lo mismo. La respuesta debe indicar cómo continuar, ya sea aclarar el idioma, aportar resultados, corregir conteos o repetir la evaluación bajo las mismas condiciones.
+
+\section{Conclusión}
+
+La referencia es adecuada cuando ya se conocen los parámetros. smolagents permite seguir las llamadas con poco código, pero el contrato se valida fuera del agente, al terminar, y el framework dejó continuar al modelo tras una denegación. Pydantic AI facilitó la salida tipada y el control de errores, aunque también produjo una respuesta válida con una fuente incorrecta. MCP permitió usar las mismas herramientas en otro proceso; compartirlas entre varias aplicaciones sería una utilidad posible que no se evaluó.
+
+Para este asistente se elegiría Pydantic AI local, con verificación de los datos y control de los parámetros omitidos. MCP se justificaría si fuera necesario ofrecer las herramientas a otras aplicaciones. La elección se limita a este modelo, datos sintéticos y pocas repeticiones; no permite afirmar significación estadística ni generalizar a otras tareas.

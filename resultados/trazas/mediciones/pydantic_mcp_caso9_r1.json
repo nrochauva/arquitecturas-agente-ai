@@ -1,0 +1,17 @@
+{
+  "configuracion": "pydantic_mcp",
+  "caso": "9",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y B en español en el corpus privado.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "corpus": "privado",
+        "idioma": "es"
+      }
+    }
+  ],
+  "salida": null,
+  "terminacion": "ToolError: Error executing tool sistemas: Corpus no autorizado: privado"
+}

@@ -1,0 +1,23 @@
+{
+  "configuracion": "referencia",
+  "caso": "4",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y D en español en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "D"
+    ],
+    "motivo": "sistema_sin_resultados",
+    "detalle": "Sin resultados de ['D'].",
+    "falta": [
+      "D"
+    ],
+    "siguiente_paso": "Aportar resultados de esos sistemas o comparar otros."
+  },
+  "terminacion": "salida final"
+}

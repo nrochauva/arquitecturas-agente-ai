@@ -1,0 +1,32 @@
+{
+  "configuracion": "referencia",
+  "caso": "3",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y C en español en el corpus demo.",
+  "acciones": [],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "C",
+        "wer": 1.5,
+        "fuente": "demo:es:C"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "A",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:C"
+    ],
+    "limitaciones": "Solo corpus demo y conteos agregados; no permite afirmar significación, generalización ni conclusiones clínicas."
+  },
+  "terminacion": "salida final"
+}

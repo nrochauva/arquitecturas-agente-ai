@@ -1,0 +1,89 @@
+{
+  "configuracion": "pydantic_local",
+  "caso": "4",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y D en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A"
+      }
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo",
+        "sistema": "D"
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "disponible",
+        "fila": "demo:es:A",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "A",
+        "version": "v1",
+        "particion": "test",
+        "normalizacion": "minusculas_sin_puntuacion",
+        "s": 8,
+        "d": 2,
+        "i": 1,
+        "n": 100,
+        "wer": 0.11
+      }
+    },
+    {
+      "observacion": "resultados",
+      "contenido": {
+        "estado": "sin_resultados",
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "D"
+      }
+    },
+    {
+      "accion": "final_result_DatosInsuficientes",
+      "argumentos": {
+        "sistemas": [
+          "A",
+          "D"
+        ],
+        "motivo": "sistema_sin_resultados",
+        "idioma": "es",
+        "estado": "datos_insuficientes",
+        "falta": [
+          "resultados para el sistema D en el corpus demo y idioma es"
+        ],
+        "corpus": "demo",
+        "siguiente_paso": "Verifique que el sistema D esté disponible en el catálogo para el corpus demo y el idioma es, o seleccione otro sistema que contenga resultados.",
+        "detalle": "El sistema D no tiene resultados disponibles en el corpus demo para el idioma español, por lo que no es posible realizar la comparación con el sistema A."
+      }
+    },
+    {
+      "observacion": "final_result_DatosInsuficientes",
+      "contenido": "Final result processed."
+    }
+  ],
+  "salida": {
+    "estado": "datos_insuficientes",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      "A",
+      "D"
+    ],
+    "motivo": "sistema_sin_resultados",
+    "detalle": "El sistema D no tiene resultados disponibles en el corpus demo para el idioma español, por lo que no es posible realizar la comparación con el sistema A.",
+    "falta": [
+      "resultados para el sistema D en el corpus demo y idioma es"
+    ],
+    "siguiente_paso": "Verifique que el sistema D esté disponible en el catálogo para el corpus demo y el idioma es, o seleccione otro sistema que contenga resultados."
+  },
+  "terminacion": "salida final"
+}

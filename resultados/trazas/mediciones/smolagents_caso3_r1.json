@@ -1,0 +1,78 @@
+{
+  "configuracion": "smolagents",
+  "caso": "3",
+  "repeticion": 1,
+  "peticion": "Compara los sistemas A y C en español en el corpus demo.",
+  "acciones": [
+    {
+      "accion": "sistemas",
+      "argumentos": {
+        "idioma": "es",
+        "corpus": "demo"
+      }
+    },
+    {
+      "observacion": 1,
+      "contenido": "{'corpus': 'demo', 'idioma': 'es', 'con_resultados': ['A', 'B', 'C'], 'sin_resultados': ['D'], 'procedencia': 'Conteos sintéticos del ejercicio, sin audio ni modelos reales.'}"
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "sistema": "A",
+        "idioma": "es"
+      }
+    },
+    {
+      "observacion": 2,
+      "contenido": "{'estado': 'disponible', 'fila': 'demo:es:A', 'corpus': 'demo', 'idioma': 'es', 'sistema': 'A', 'version': 'v1', 'particion': 'test', 'normalizacion': 'minusculas_sin_puntuacion', 's': 8, 'd': 2, 'i': 1, 'n': 100, 'wer': 0.11}"
+    },
+    {
+      "accion": "resultados",
+      "argumentos": {
+        "corpus": "demo",
+        "idioma": "es",
+        "sistema": "C"
+      }
+    },
+    {
+      "observacion": 3,
+      "contenido": "{'estado': 'disponible', 'fila': 'demo:es:C', 'corpus': 'demo', 'idioma': 'es', 'sistema': 'C', 'version': 'v1', 'particion': 'test', 'normalizacion': 'minusculas_sin_puntuacion', 's': 0, 'd': 0, 'i': 150, 'n': 100, 'wer': 1.5}"
+    },
+    {
+      "accion": "final_answer",
+      "argumentos": {
+        "answer": "{\n  \"estado\": \"comparacion\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    {\n      \"sistema\": \"A\",\n      \"wer\": 0.11,\n      \"fuente\": \"demo:es:A\"\n    },\n    {\n      \"sistema\": \"C\",\n      \"wer\": 1.5,\n      \"fuente\": \"demo:es:C\"\n    }\n  ],\n  \"decision\": \"ganador\",\n  \"ganador\": \"A\",\n  \"fuentes\": [\n    \"demo:es:A\",\n    \"demo:es:C\"\n  ],\n  \"limitaciones\": \"Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales, por lo que representan una evaluación simulada y limitada del rendimiento ASR.\"\n}"
+      }
+    },
+    {
+      "observacion": 4,
+      "contenido": "{\n  \"estado\": \"comparacion\",\n  \"corpus\": \"demo\",\n  \"idioma\": \"es\",\n  \"sistemas\": [\n    {\n      \"sistema\": \"A\",\n      \"wer\": 0.11,\n      \"fuente\": \"demo:es:A\"\n    },\n    {\n      \"sistema\": \"C\",\n      \"wer\": 1.5,\n      \"fuente\": \"demo:es:C\"\n    }\n  ],\n  \"decision\": \"ganador\",\n  \"ganador\": \"A\",\n  \"fuentes\": [\n    \"demo:es:A\",\n    \"demo:es:C\"\n  ],\n  \"limitaciones\": \"Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales, por lo que representan una evaluación simulada y limitada del rendimiento ASR.\"\n}"
+    }
+  ],
+  "salida": {
+    "estado": "comparacion",
+    "corpus": "demo",
+    "idioma": "es",
+    "sistemas": [
+      {
+        "sistema": "A",
+        "wer": 0.11,
+        "fuente": "demo:es:A"
+      },
+      {
+        "sistema": "C",
+        "wer": 1.5,
+        "fuente": "demo:es:C"
+      }
+    ],
+    "decision": "ganador",
+    "ganador": "A",
+    "fuentes": [
+      "demo:es:A",
+      "demo:es:C"
+    ],
+    "limitaciones": "Los datos provienen de conteos sintéticos del ejercicio, sin audio ni modelos reales, por lo que representan una evaluación simulada y limitada del rendimiento ASR."
+  },
+  "terminacion": "salida final"
+}
